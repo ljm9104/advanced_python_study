@@ -1,9 +1,9 @@
 """
 with语句上下文管理协议实现__enter__和__exit__魔法函数
 
-try except finally
+try except else finally
 
-return语句执行，若finaly里有return执行，若没有就执行之前
+return语句执行，若finaly里有return执行finally里面的，若没有就执行之前，try，except，else
 """
 
 def exe_try():
@@ -19,7 +19,7 @@ def exe_try():
         return 3
     finally:
         print ("finally")
-        # return 4           # return语句执行顺序，finaly没有return执行前面的，有就执行finaly的
+        # return 4           # return语句执行顺序，finally没有return执行前面的，有就执行finaly的
 
 
 # 上下文管理器协议

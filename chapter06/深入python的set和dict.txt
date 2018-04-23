@@ -1,0 +1,21 @@
+dict属于mapping类型
+
+dict常用方法
+    clear()
+    copy()      浅拷贝
+    formkeys()
+    get()
+    items()
+    keys()
+    values()
+    pop()
+    setdefault()
+    update()    # 更新
+
+dict子类
+    collections里UserDict可以完全重写
+    collections里defaultdict
+
+
+set 和 fronzeset(不可变集合) 无序， 不重复
+

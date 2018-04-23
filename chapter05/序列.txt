@@ -1,0 +1,30 @@
+序列分类：
+    容器序列	list、tuple、deque
+    扁平序列	str、bytes、bytearray、array.array
+    可变序列	list， deque，bytearray、array
+    不可变     	str、tuple、bytes
+    
+序列继承关系
+collection.abc模块
+
+from collection import abc
+Sequence, MutabSequence
+
+
++   与 += 与 extend以及append的区别
++   相加两侧数据类型一致
++=  就地加，两侧可以不同，右侧数据类型可以为任意序列类型
+    原理  __iadd__（）魔法函数
+    def __iadd__(self, values):
+        self.extend(values)
+        return self
+extend 将序列的元素逐一添加
+append 追加单元素
+
+
+bisect模块：用来处理已排序的序列，用来维持已排序的序列， 升序
+
+
+array和list的一个重要区别， array只能存放指定的数据类型
+
+

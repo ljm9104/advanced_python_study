@@ -1,0 +1,31 @@
+# 什么是迭代协议
+# 迭代器是什么？ 迭代器是访问集合内元素的一种方式， 一般用来遍历数据
+# 迭代器和以下标的访问方式不一样， 迭代器是不能返回的, 迭代器提供了一种惰性方式数据的方式
+# []  __getiem__        list , __iter__
+    
+Iterable 实现了__iter__, Iterator实现了__iter__和__next__
+
+可迭代内部实现：先__iter__没有就__getitem__
+
+for 内部原理
+    # while True:
+    #     try:
+    #         print (next(my_itor))
+    #     except StopIteration:
+    #         pass
+
+
+生成器对象， python编译字节码的时候就产生了
+
+python中函数的工作原理:python解释器用会用一个叫做 PyEval_EvalFramEx(c函数)去执行foo函数，
+首先会创建一个栈帧(stack frame)，
+python一切皆对象，栈帧对象， 字节码对象
+当foo调用子函数 bar， 又会创建一个栈帧
+所有的栈帧都是分配在堆内存上，这就决定了栈帧可以独立于调用者存在
+
+生成器工作原理？？
+
+
+
+list用c语言写的，UserList用Python写的
+from collections import UserList

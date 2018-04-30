@@ -1,0 +1,7 @@
+TCP/IP详解书籍
+五层网络模型（四，七）
+    应用层，（表示层，会话层），传输层，网络层，数据链路层，物理层
+
+    
+Socket编程
+bind（协议，地址，端口）  listen  accept  阻塞（建立连接）  recv  send  close

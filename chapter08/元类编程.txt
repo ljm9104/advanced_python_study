@@ -1,0 +1,45 @@
+1. property动态属性
+property将一个函数变为一个属性，可用.访问
+
+
+2. 
+__getattr__, __getattribute__
+__getattr__ 就是在查找不到属性的时候调用
+
+
+3.属性描述符和查找过程
+数据描述符-->实例-->非数据描述符-->
+
+描述符(__get__,__set__,__delete__)
+数据描述符(实现了 __set__)
+非数据属性描述符(没有实现__set__)
+
+如果user是某个类的实例，那么user.age（以及等价的getattr(user,’age’)）
+    首先调用__getattribute__。
+如果类定义了__getattr__方法，
+    那么在__getattribute__抛出 AttributeError 的时候就会调用到__getattr__，
+而对于描述符(__get__）的调用，则是发生在__getattribute__内部的。
+user = User(), 那么user.age 顺序如下：
+    （1）如果“age”是出现在User或其基类的__dict__中， 且age是data descriptor， 那么调用其__get__方法, 否则
+    （2）如果“age”出现在user的__dict__中， 那么直接返回 obj.__dict__[‘age’]， 否则
+    （3）如果“age”出现在User或其基类的__dict__中
+        （3.1）如果age是non-data descriptor，那么调用其__get__方法， 否则
+        （3.2）返回 __dict__[‘age’]
+    （4）如果User有__getattr__方法，调用__getattr__方法，否则
+    （5）抛出AttributeError
+
+4. __new__和__init__区别
+__new__  类
+__init__ 实例
+new 是用来控制对象的生成过程， 在对象生成之前， init是用来完善对象的，
+**如果new方法不返回对象， 则不会调用init函数
+
+5.自定义元类
+类也是对象，type创建类的类
+type动态创建类
+
+6.
+
+
+7.
+

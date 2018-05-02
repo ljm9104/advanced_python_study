@@ -4,4 +4,5 @@ TCP/IP详解书籍
 
     
 Socket编程
-bind（协议，地址，端口）  listen  accept  阻塞（建立连接）  recv  send  close
+server    bind（协议，地址，端口）  listen  accept  阻塞（建立连接）  recv  send  close
+client                                              connect           send  recv  close

@@ -47,9 +47,7 @@ def get_detail_url(lock):
         print("get detail url end")
 
 
-
-
-if  __name__ == "__main__":
+if __name__ == "__main__":
     lock = RLock()
     thread_detail_url = threading.Thread(target=get_detail_url, args=(lock,))
     for i in range(10):
@@ -62,6 +60,5 @@ if  __name__ == "__main__":
     #
     # thread1.join()
     # thread2.join()
-
-    #当主线程退出的时候， 子线程kill掉
-    print ("last time: {}".format(time.time()-start_time))
+    # 当主线程退出的时候， 子线程kill掉
+    print("last time: {}".format(time.time() - start_time))

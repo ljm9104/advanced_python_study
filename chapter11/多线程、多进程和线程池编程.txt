@@ -1,0 +1,41 @@
+11.1全局解释器锁 GIL (CPython) 
+    GIL 使得同一时刻只有一个线程在cpu上执行字节码，无法将多线程映射到多cpu上
+    Python 中一线程对应c语言一线程
+
+    GIL 会根据执行的字节码行数以及时间片释放GIL ，GIL 在遇到io的操作时候主动释放
+
+    dis模块跟踪执行顺序
+
+11.2
+    对于io操作来说，多线程和多进程性能差别不大
+    当主线程退出的时候， 子线程kill掉
+    
+    开线程的两种方法：
+        1. 通过Thread类实例化
+            thread1 = threading.Thread(target=func,args=("",)
+        2. 通过集成Thread来实现多线程，重载run()方法 
+    
+11.3 线程间通信
+    1. 线程通信方式- 共享变量
+    2.通过queue的方式进行线程间同步
+
+11.4,11.5,11.6 线程同步
+    锁 Lock
+    可重入的锁 Rlock
+        在同一个线程里面，可以连续调用多次acquire， 一定要注意acquire的次数要和release的次数相等
+    1. 用锁会影响性能
+    2. 锁会引起死锁
+    3. 死锁的情况 A（a，b）
+            """
+            A(a、b)
+            acquire (a)
+            acquire (b)
+
+            B(a、b)
+            acquire (a)
+            acquire (b)
+            """
+    4.condition 条件变量， 用于复杂的线程间同步
+    5.Semaphore 是用于控制进入数量的锁
+        sem = threading.Semaphore(3)
+        文件， 读、写， 写一般只是用于一个线程写，读可以允许有多个
